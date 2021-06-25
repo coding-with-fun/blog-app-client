@@ -1,19 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import HomeScreen from "./screens/HomeScreen";
+import WrappedRouter from "./utils/WrappedRouter";
 
 const App = () => {
     return (
-        <div>
+        <Router>
             <Navbar />
 
             <div className="screens__container">
-                <HomeScreen />
+                <WrappedRouter />
             </div>
 
             <Footer />
-        </div>
+        </Router>
     );
 };
 

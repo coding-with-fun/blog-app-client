@@ -1,12 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const handleNavbarCollapse = () => {
+        document.querySelector("#navbarNav").classList.remove("show");
+    };
+
     return (
         <nav className="navbar fixed-top navbar-expand-lg user-select-none navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">
+                <Link
+                    className="navbar-brand"
+                    onClick={handleNavbarCollapse}
+                    to="/"
+                >
                     Blog.It
-                </a>
+                </Link>
 
                 <button
                     className="navbar-toggler"
@@ -26,28 +35,41 @@ const Navbar = () => {
                 >
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a
+                            <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                href="/"
+                                onClick={handleNavbarCollapse}
+                                to="/"
                             >
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">
+                            <Link
+                                className="nav-link"
+                                onClick={handleNavbarCollapse}
+                                to="/create"
+                            >
                                 Create New Post
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">
+                            <Link
+                                className="nav-link"
+                                onClick={handleNavbarCollapse}
+                                to="/about"
+                            >
                                 About
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">
+                            <span
+                                className="nav-link"
+                                role="button"
+                                tabIndex="0"
+                            >
                                 Sign Out
-                            </a>
+                            </span>
                         </li>
                     </ul>
                 </div>
