@@ -1,7 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+    const location = useLocation();
+    const history = useHistory();
+
+    const handleSignOut = () => {
+        history.push("/");
+        handleNavbarCollapse();
+    };
+
     const handleNavbarCollapse = () => {
         document.querySelector("#navbarNav").classList.remove("show");
     };
@@ -36,8 +44,12 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link
-                                className="nav-link active"
-                                aria-current="page"
+                                className={`nav-link ${
+                                    location.pathname === "/" && "active"
+                                }`}
+                                aria-current={
+                                    location.pathname === "/" ? "page" : "false"
+                                }
                                 onClick={handleNavbarCollapse}
                                 to="/"
                             >
@@ -46,7 +58,14 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link
-                                className="nav-link"
+                                className={`nav-link ${
+                                    location.pathname === "/create" && "active"
+                                }`}
+                                aria-current={
+                                    location.pathname === "/create"
+                                        ? "page"
+                                        : "false"
+                                }
                                 onClick={handleNavbarCollapse}
                                 to="/create"
                             >
@@ -55,7 +74,14 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link
-                                className="nav-link"
+                                className={`nav-link ${
+                                    location.pathname === "/about" && "active"
+                                }`}
+                                aria-current={
+                                    location.pathname === "/about"
+                                        ? "page"
+                                        : "false"
+                                }
                                 onClick={handleNavbarCollapse}
                                 to="/about"
                             >
@@ -65,6 +91,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             <span
                                 className="nav-link"
+                                onClick={handleSignOut}
                                 role="button"
                                 tabIndex="0"
                             >
