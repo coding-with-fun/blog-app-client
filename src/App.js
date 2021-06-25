@@ -1,9 +1,15 @@
 import React from "react";
+import Navbar from "./components/Navbar";
+import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
     return (
         <div>
-            <h1>Hello World!</h1>
+            <Navbar />
+
+            <div className="screens__container">
+                <HomeScreen />
+            </div>
         </div>
     );
 };
