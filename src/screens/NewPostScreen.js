@@ -17,9 +17,11 @@ const NewPostScreen = () => {
         }));
     };
 
-    const handleCreateNewPost = () => {};
+    const handleCreateNewPost = (e) => {
+        e.preventDefault();
 
-    console.log(postData);
+        setPostData(initialData);
+    };
 
     return (
         <div className="new_post__container pt-4 container">

@@ -25,8 +25,8 @@
         align-items: center;
 
         width: 100%;
-        padding-left: 30px;
-        padding-right: 20px;
+        padding-left: 1.5rem;
+        padding-right: 1rem;
 
         .nav_logo {
             font-size: 2rem;
@@ -39,6 +39,7 @@
             list-style: none;
 
             .nav_link {
+                margin: 0 0.5rem;
                 color: var(--bs-secondary);
                 cursor: pointer;
             }

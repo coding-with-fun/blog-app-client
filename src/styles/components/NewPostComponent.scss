@@ -16,6 +16,15 @@
         flex-direction: column;
         margin-bottom: 1.3rem;
 
+        .post_title {
+            font-weight: 600;
+            color: var(--bs-success);
+        }
+
+        .empty_title {
+            color: var(--bs-danger);
+        }
+
         input {
             outline: none;
             box-shadow: none;
@@ -40,6 +49,15 @@
         .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
             box-shadow: none;
             border-color: #c4c4c4;
+        }
+
+        .post_description {
+            font-weight: 600;
+            color: var(--bs-success);
+        }
+
+        .warn_text {
+            color: var(--bs-danger);
         }
     }
 }
