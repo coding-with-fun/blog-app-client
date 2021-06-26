@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import PostContent from "../components/NewPost/PostContent";
 import PostTitle from "../components/NewPost/PostTitle";
 import { PostDataContext } from "../contexts/PostDataContext";
+import { ToastNotification } from "../utils/ToastNotification";
 
 const NewPostScreen = () => {
     const { addPost } = useContext(PostDataContext);
@@ -27,6 +28,7 @@ const NewPostScreen = () => {
 
         addPost(postData);
         history.push("/");
+        ToastNotification("success", "New post created successfully.");
         setPostData(initialData);
     };
 
