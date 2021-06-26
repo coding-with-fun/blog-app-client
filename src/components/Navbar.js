@@ -14,65 +14,65 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="nav-container">
-                <NavLink exact to="/" className="nav-logo">
+            <div className="nav_container">
+                <NavLink exact to="/" className="nav_logo">
                     Blog.It
                 </NavLink>
 
-                <ul className={`nav-menu ${isMenuOpen && "active"}`}>
-                    <li className="nav-item">
+                <ul className={`nav_menu ${isMenuOpen && "active"}`}>
+                    <li className="nav_item">
                         <NavLink
                             exact
                             to="/"
                             activeClassName="active"
-                            className="nav-link"
+                            className="nav_link"
                             onClick={handleToggleMenu}
                         >
                             Home
                         </NavLink>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav_item">
                         <NavLink
                             exact
                             to="/create"
                             activeClassName="active"
-                            className="nav-link"
+                            className="nav_link"
                             onClick={handleToggleMenu}
                         >
                             Create
                         </NavLink>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav_item">
                         <NavLink
                             exact
                             to="/about"
                             activeClassName="active"
-                            className="nav-link"
+                            className="nav_link"
                             onClick={handleToggleMenu}
                         >
                             About
                         </NavLink>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav_item">
                         <NavLink
                             exact
                             to="/profile"
                             activeClassName="active"
-                            className="nav-link"
+                            className="nav_link"
                             onClick={handleToggleMenu}
                         >
                             Profile
                         </NavLink>
                     </li>
-                    <li className="nav-item">
-                        <div className="nav-link" onClick={handleSignOut}>
+                    <li className="nav_item">
+                        <div className="nav_link" onClick={handleSignOut}>
                             Sign Out
                         </div>
                     </li>
-                    <li className="nav-item"></li>
+                    <li className="nav_item"></li>
                 </ul>
 
-                <div className="nav-icon" onClick={handleToggleMenu}>
+                <div className="nav_icon" onClick={handleToggleMenu}>
                     {isMenuOpen ? (
                         <svg
                             width="24"

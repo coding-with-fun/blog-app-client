@@ -1,0 +1,45 @@
+.new_post__container {
+    max-width: 725px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-weight: 600;
+        padding-bottom: 0.3rem;
+    }
+
+    .post_title {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.3rem;
+
+        input {
+            outline: none;
+            box-shadow: none;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid #c4c4c4;
+        }
+    }
+
+    .post_description {
+        .ck.ck-editor__editable_inline {
+            padding: 0 0.7rem;
+        }
+
+        p {
+            margin: 0.4rem 0;
+        }
+
+        .ck-editor__editable {
+            min-height: 45vh;
+        }
+
+        .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+            box-shadow: none;
+            border-color: #c4c4c4;
+        }
+    }
+}
