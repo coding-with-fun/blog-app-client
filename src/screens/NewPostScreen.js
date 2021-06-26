@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import PostContent from "../components/NewPost/PostContent";
 import PostTitle from "../components/NewPost/PostTitle";
 import { PostDataContext } from "../contexts/PostDataContext";
 
 const NewPostScreen = () => {
     const { addPost } = useContext(PostDataContext);
+    const history = useHistory();
 
     const initialData = {
         title: "",
@@ -24,6 +26,7 @@ const NewPostScreen = () => {
         e.preventDefault();
 
         addPost(postData);
+        history.push("/");
         setPostData(initialData);
     };
 
