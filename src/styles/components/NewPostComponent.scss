@@ -33,7 +33,7 @@
         }
     }
 
-    .post_description {
+    .post_content {
         .ck.ck-editor__editable_inline {
             padding: 0 0.7rem;
         }
@@ -51,7 +51,7 @@
             border-color: #c4c4c4;
         }
 
-        .post_description {
+        .post_content {
             font-weight: 600;
             color: var(--bs-success);
         }

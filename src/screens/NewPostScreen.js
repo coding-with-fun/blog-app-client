@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import PostContent from "../components/NewPost/PostContent";
 import PostTitle from "../components/NewPost/PostTitle";
+import { PostDataContext } from "../contexts/PostDataContext";
 
 const NewPostScreen = () => {
+    const { addPost } = useContext(PostDataContext);
+
     const initialData = {
         title: "",
-        description: "",
+        content: "",
     };
 
     const [postData, setPostData] = useState(initialData);
@@ -20,6 +23,7 @@ const NewPostScreen = () => {
     const handleCreateNewPost = (e) => {
         e.preventDefault();
 
+        addPost(postData);
         setPostData(initialData);
     };
 

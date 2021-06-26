@@ -12,7 +12,7 @@ export const PostDataProvider = ({ children }) => {
             content: data.content,
         };
 
-        setPostsList([...postsListCopy, ...postData]);
+        setPostsList([...postsListCopy, postData]);
     };
 
     return (

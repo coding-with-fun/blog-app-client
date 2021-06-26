@@ -3,7 +3,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import React, { useRef } from "react";
 
 const PostContent = ({ handlePostDataChange, postData }) => {
-    const refDescription = useRef("");
+    const refContent = useRef("");
 
     const handleUserInput = (event, editor) => {
         const data = editor.getData();
@@ -12,17 +12,17 @@ const PostContent = ({ handlePostDataChange, postData }) => {
         cleanedData = cleanedData.replace(/&nbsp;/g, " ");
 
         if (cleanedData.length < 10001) {
-            refDescription.current = cleanedData;
-            handlePostDataChange(data, "description");
+            refContent.current = cleanedData;
+            handlePostDataChange(data, "content");
         }
     };
 
     return (
-        <div className="post_description">
+        <div className="post_content">
             <label>Description</label>
             <CKEditor
                 editor={ClassicEditor}
-                data={postData.description}
+                data={postData.content}
                 onChange={handleUserInput}
                 config={{
                     toolbar: [
@@ -42,27 +42,27 @@ const PostContent = ({ handlePostDataChange, postData }) => {
             />
             <div className="d-flex justify-content-between">
                 <div
-                    id="postDescriptionLengthHelp"
-                    className={`form-text text-end pe-1 post_description ${
-                        refDescription.current.length < 1 ||
-                        refDescription.current.length === 10000
+                    id="postContentLengthHelp"
+                    className={`form-text text-end pe-1 post_content ${
+                        refContent.current.length < 1 ||
+                        refContent.current.length === 10000
                             ? "warn_text"
                             : ""
                     }`}
                 >
-                    {refDescription.current.length}/10000
+                    {refContent.current.length}/10000
                 </div>
-                {refDescription.current.length < 100 && (
+                {refContent.current.length < 100 && (
                     <div
-                        id="postDescriptionMessageHelp"
+                        id="postContentMessageHelp"
                         className="form-text text-end pe-1 ps-3 warn_text"
                     >
                         Minimum 100 characters are required in post content.
                     </div>
                 )}
-                {refDescription.current.length > 9999 && (
+                {refContent.current.length > 9999 && (
                     <div
-                        id="postDescriptionMessageHelp"
+                        id="postContentMessageHelp"
                         className="form-text text-end pe-1 ps-3 warn_text"
                     >
                         You can not add more than 10000 characters in the post.
