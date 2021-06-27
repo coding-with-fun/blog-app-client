@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import SampleData from "../sampleData.json";
+import randomstring from "randomstring";
 
 export const PostDataContext = createContext();
 
@@ -9,7 +10,7 @@ export const PostDataProvider = ({ children }) => {
     const addPost = (data) => {
         const postsListCopy = [...postsList];
         const postData = {
-            key: postsListCopy.length,
+            key: randomstring.generate(10),
             title: data.title,
             content: data.content,
             cleanContent: data.cleanContent,

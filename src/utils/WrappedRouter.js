@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AboutScreen from "../screens/AboutScreen";
 import HomeScreen from "../screens/HomeScreen";
 import NewPostScreen from "../screens/NewPostScreen";
+import PostScreen from "../screens/PostScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 
 const WrappedRouter = () => {
@@ -12,6 +13,7 @@ const WrappedRouter = () => {
             <Route exact path="/create" component={NewPostScreen} />
             <Route exact path="/about" component={AboutScreen} />
             <Route exact path="/profile" component={ProfileScreen} />
+            <Route exact path="/post/:id" component={PostScreen} />
         </Switch>
     );
 };
