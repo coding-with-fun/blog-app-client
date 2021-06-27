@@ -1,6 +1,7 @@
-import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 import React, { useRef } from "react";
+import { MobileView } from "react-device-detect";
 
 const PostContent = ({ handlePostDataChange, postData }) => {
     const refContent = useRef("");
@@ -21,6 +22,12 @@ const PostContent = ({ handlePostDataChange, postData }) => {
     return (
         <div className="post_content">
             <label>Description</label>
+            <MobileView>
+                <span className="warn_text">
+                    * The line should end with proper punctuation to move to
+                    next line.
+                </span>
+            </MobileView>
             <CKEditor
                 editor={ClassicEditor}
                 data={postData.content}
