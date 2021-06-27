@@ -8,12 +8,13 @@ const PostContent = ({ handlePostDataChange, postData }) => {
     const handleUserInput = (event, editor) => {
         const data = editor.getData();
 
-        let cleanedData = data.replace(/(<([^>]+)>)/gi, "");
+        let cleanedData = data.replace(/(<([^>]+)>)/gi, " ");
         cleanedData = cleanedData.replace(/&nbsp;/g, " ");
 
         if (cleanedData.length < 10001) {
-            refContent.current = cleanedData;
+            refContent.current = cleanedData.trim();
             handlePostDataChange(data, "content");
+            handlePostDataChange(cleanedData.trim(), "cleanContent");
         }
     };
 

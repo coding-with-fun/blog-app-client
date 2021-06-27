@@ -12,7 +12,7 @@ const HomeScreen = () => {
                     <div className="individual_post" key={post.key}>
                         <div>{post.title}</div>
 
-                        <div>{post.content}</div>
+                        <p>{post.cleanContent}</p>
                     </div>
                 );
             })}

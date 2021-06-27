@@ -12,6 +12,7 @@ const NewPostScreen = () => {
     const initialData = {
         title: "",
         content: "",
+        cleanContent: "",
     };
 
     const [postData, setPostData] = useState(initialData);

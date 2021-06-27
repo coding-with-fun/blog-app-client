@@ -12,6 +12,7 @@ export const PostDataProvider = ({ children }) => {
             key: postsListCopy.length,
             title: data.title,
             content: data.content,
+            cleanContent: data.cleanContent,
         };
 
         setPostsList([...postsListCopy, postData]);
