@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
+import { UserDataContext } from "../contexts/UserDataContext";
 
 const Navbar = () => {
     const history = useHistory();
+    const { userData } = useContext(UserDataContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -31,17 +33,21 @@ const Navbar = () => {
                             Home
                         </NavLink>
                     </li>
-                    <li className="nav_item">
-                        <NavLink
-                            exact
-                            to="/create"
-                            activeClassName="active"
-                            className="nav_link"
-                            onClick={handleToggleMenu}
-                        >
-                            Create
-                        </NavLink>
-                    </li>
+
+                    {userData && (
+                        <li className="nav_item">
+                            <NavLink
+                                exact
+                                to="/create"
+                                activeClassName="active"
+                                className="nav_link"
+                                onClick={handleToggleMenu}
+                            >
+                                Create
+                            </NavLink>
+                        </li>
+                    )}
+
                     <li className="nav_item">
                         <NavLink
                             exact
@@ -53,22 +59,57 @@ const Navbar = () => {
                             About
                         </NavLink>
                     </li>
-                    <li className="nav_item">
-                        <NavLink
-                            exact
-                            to="/profile"
-                            activeClassName="active"
-                            className="nav_link"
-                            onClick={handleToggleMenu}
-                        >
-                            Profile
-                        </NavLink>
-                    </li>
-                    <li className="nav_item">
-                        <div className="nav_link" onClick={handleSignOut}>
-                            Sign Out
-                        </div>
-                    </li>
+
+                    {userData && (
+                        <li className="nav_item">
+                            <NavLink
+                                exact
+                                to="/profile"
+                                activeClassName="active"
+                                className="nav_link"
+                                onClick={handleToggleMenu}
+                            >
+                                Profile
+                            </NavLink>
+                        </li>
+                    )}
+
+                    {userData && (
+                        <li className="nav_item">
+                            <div className="nav_link" onClick={handleSignOut}>
+                                Sign Out
+                            </div>
+                        </li>
+                    )}
+
+                    {!userData && (
+                        <li className="nav_item">
+                            <NavLink
+                                exact
+                                to="/signin"
+                                activeClassName="active"
+                                className="nav_link"
+                                onClick={handleToggleMenu}
+                            >
+                                Sign In
+                            </NavLink>
+                        </li>
+                    )}
+
+                    {!userData && (
+                        <li className="nav_item">
+                            <NavLink
+                                exact
+                                to="/signup"
+                                activeClassName="active"
+                                className="nav_link"
+                                onClick={handleToggleMenu}
+                            >
+                                Sign Up
+                            </NavLink>
+                        </li>
+                    )}
+
                     <li className="nav_item"></li>
                 </ul>
 
