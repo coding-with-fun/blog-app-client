@@ -1,0 +1,23 @@
+.post_content {
+    .post_header {
+        display: flex;
+        align-items: center;
+
+        padding-bottom: 1rem;
+        margin: 1rem 0;
+        border-bottom: 1px solid var(--input-border);
+
+        .back_arrow {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .title {
+            margin: 0;
+            font-size: x-large;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

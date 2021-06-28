@@ -12,7 +12,19 @@
         .title {
             font-weight: 600;
             font-size: large;
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.2rem;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+        }
+
+        .content {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
         }
 
         p,

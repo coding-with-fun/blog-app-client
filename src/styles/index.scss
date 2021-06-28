@@ -5,6 +5,7 @@
 @import "./components/HomeScreenComponent";
 @import "./components/Navbar";
 @import "./components/NewPostComponent";
+@import "./components/PostScreen";
 
 body {
     font-family: "Lato", sans-serif;
@@ -21,4 +22,9 @@ body {
         text-decoration: none;
         font-weight: 700;
     }
+}
+
+svg {
+    height: 24px;
+    width: 24px;
 }
