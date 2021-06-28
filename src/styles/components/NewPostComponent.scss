@@ -18,18 +18,18 @@
 
         .post_title {
             font-weight: 600;
-            color: var(--bs-success);
+            color: var(--success);
         }
 
         .empty_title {
-            color: var(--bs-danger);
+            color: var(--danger);
         }
 
         input {
             outline: none;
             box-shadow: none;
             padding: 0.2rem 0.5rem;
-            border: 1px solid #c4c4c4;
+            border: 1px solid var(--input-border);
         }
     }
 
@@ -48,16 +48,16 @@
 
         .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
             box-shadow: none;
-            border-color: #c4c4c4;
+            border-color: var(--input-border);
         }
 
         .post_content {
             font-weight: 600;
-            color: var(--bs-success);
+            color: var(--success);
         }
 
         .warn_text {
-            color: var(--bs-danger);
+            color: var(--danger);
         }
     }
 }

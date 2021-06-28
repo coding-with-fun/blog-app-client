@@ -9,28 +9,30 @@ import WrappedRouter from "./utils/WrappedRouter";
 
 const App = () => {
     return (
-        <PostDataProvider>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss={false}
-                draggable={false}
-                pauseOnHover
-            />
-            <Router>
-                <Navbar />
+        <div className="light">
+            <PostDataProvider>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss={false}
+                    draggable={false}
+                    pauseOnHover
+                />
+                <Router>
+                    <Navbar />
 
-                <div className="screens__container">
-                    <WrappedRouter />
-                </div>
+                    <div className="screens__container">
+                        <WrappedRouter />
+                    </div>
 
-                <Footer />
-            </Router>
-        </PostDataProvider>
+                    <Footer />
+                </Router>
+            </PostDataProvider>
+        </div>
     );
 };
 

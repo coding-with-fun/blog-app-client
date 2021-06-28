@@ -1,6 +1,6 @@
 .navbar {
-    background-color: var(--bs-light);
-    color: var(--bs-dark);
+    background-color: var(--light);
+    color: var(--dark);
     height: 56px;
     width: 100vw;
 
@@ -40,7 +40,7 @@
 
             .nav_link {
                 margin: 0 0.5rem;
-                color: var(--bs-secondary);
+                color: var(--secondary);
                 cursor: pointer;
             }
 
@@ -63,7 +63,7 @@
                 align-items: center;
                 width: 100vw;
                 height: calc(100vh - 56px);
-                background-color: var(--bs-light);
+                background-color: var(--light);
 
                 position: absolute;
                 top: 56px;
