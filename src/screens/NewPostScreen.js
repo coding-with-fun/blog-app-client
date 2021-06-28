@@ -28,9 +28,9 @@ const NewPostScreen = () => {
         e.preventDefault();
 
         addPost(postData);
-        history.push("/");
         ToastNotification("success", "New post created successfully.");
         setPostData(initialData);
+        history.push("/");
     };
 
     return (
