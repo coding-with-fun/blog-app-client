@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import Post from "../components/Home/Post";
 import { PostDataContext } from "../contexts/PostDataContext";
 
 const HomeScreen = () => {
@@ -19,9 +20,7 @@ const HomeScreen = () => {
                         key={post.key}
                         onClick={() => handlePageRoute(post.key)}
                     >
-                        <div>{post.title}</div>
-
-                        <p>{post.cleanContent}</p>
+                        <Post post={post} />
                     </div>
                 );
             })}
