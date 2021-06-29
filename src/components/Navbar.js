@@ -16,7 +16,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar shadow-sm">
-            <div className="nav_container">
+            <div className="nav__container">
                 <NavLink exact to="/" className="nav_logo">
                     Blog.It
                 </NavLink>

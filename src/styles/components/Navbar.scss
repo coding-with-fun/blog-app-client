@@ -19,7 +19,7 @@
         text-decoration: none;
     }
 
-    .nav_container {
+    .nav__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -55,7 +55,7 @@
     }
 
     @media screen and (max-width: 582px) {
-        .nav_container {
+        .nav__container {
             .nav_menu {
                 padding-left: 0 !important;
                 flex-direction: column;
