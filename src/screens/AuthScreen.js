@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
+import { UserDataContext } from "../contexts/UserDataContext";
 
 const AuthScreen = ({ flag }) => {
     const InputFields = ({
@@ -46,6 +47,7 @@ const AuthScreen = ({ flag }) => {
         password: "",
     };
     const [userData, setUserData] = useState(initialData);
+    const { handleSetUserData } = useContext(UserDataContext);
 
     const location = useLocation();
     const history = useHistory();
@@ -66,6 +68,7 @@ const AuthScreen = ({ flag }) => {
     const onSubmit = (data, e) => {
         e.preventDefault();
         setUserData(data);
+        handleSetUserData(data);
     };
 
     const handleRouteChange = () => {

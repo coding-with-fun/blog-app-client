@@ -4,7 +4,7 @@ import { UserDataContext } from "../contexts/UserDataContext";
 
 const Navbar = () => {
     const history = useHistory();
-    const { userData } = useContext(UserDataContext);
+    const { userData, handleSetUserData } = useContext(UserDataContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -12,6 +12,7 @@ const Navbar = () => {
     const handleSignOut = () => {
         history.push("/");
         handleToggleMenu();
+        handleSetUserData();
     };
 
     return (
