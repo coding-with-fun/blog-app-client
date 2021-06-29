@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserDataContext } from "../contexts/UserDataContext";
+import { ToastNotification } from "../utils/ToastNotification";
 
 const AuthScreen = ({ flag }) => {
     const InputFields = ({
@@ -67,8 +68,10 @@ const AuthScreen = ({ flag }) => {
 
     const onSubmit = (data, e) => {
         e.preventDefault();
+        ToastNotification("success", "User signed in successfully.");
         setUserData(data);
         handleSetUserData(data);
+        history.push("/");
     };
 
     const handleRouteChange = () => {

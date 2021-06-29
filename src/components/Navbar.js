@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { UserDataContext } from "../contexts/UserDataContext";
+import { ToastNotification } from "../utils/ToastNotification";
 
 const Navbar = () => {
     const history = useHistory();
@@ -10,6 +11,7 @@ const Navbar = () => {
     const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const handleSignOut = () => {
+        ToastNotification("success", "User signed out successfully.");
         history.push("/");
         handleToggleMenu();
         handleSetUserData();
