@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserDataContext } from "../contexts/UserDataContext";
 import { ToastNotification } from "../utils/ToastNotification";
+import { userSignIn } from "../api/auth.api";
 
 const AuthScreen = ({ flag }) => {
     const InputFields = ({
@@ -66,8 +67,9 @@ const AuthScreen = ({ flag }) => {
         // eslint-disable-next-line
     }, [location]);
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         e.preventDefault();
+        await userSignIn(data);
         ToastNotification("success", "User signed in successfully.");
         setUserData(data);
         handleSetUserData(data);
