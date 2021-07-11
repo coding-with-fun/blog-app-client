@@ -30,8 +30,9 @@ const WrappedRouter = () => {
         if (isUserAuthenticated) {
             const user = await getUserData();
             handleUserData(user.data.user);
-            setIsDataFetched(true);
         }
+
+        setIsDataFetched(true);
     };
 
     return isDataFetched ? (
