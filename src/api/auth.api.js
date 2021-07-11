@@ -13,15 +13,15 @@ export const userSignIn = async (body) => {
         data: body,
     });
 
-    return response.data;
+    return response;
 };
 
 export const userSignUp = async (body) => {
     const response = await request({
         url: SIGNUP_URL,
         method: "POST",
-        body,
+        data: body,
     });
 
-    return response.data;
+    return response;
 };

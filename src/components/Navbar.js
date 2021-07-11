@@ -5,7 +5,8 @@ import { ToastNotification } from "../utils/ToastNotification";
 
 const Navbar = () => {
     const history = useHistory();
-    const { userData, handleSetUserData } = useContext(UserDataContext);
+    const { isUserAuthenticated, handleUserData, handleAuthenticateUser } =
+        useContext(UserDataContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleToggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -14,7 +15,8 @@ const Navbar = () => {
         ToastNotification("success", "User signed out successfully.");
         history.push("/");
         handleToggleMenu();
-        handleSetUserData();
+        handleUserData();
+        handleAuthenticateUser(false);
     };
 
     return (
@@ -37,7 +39,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
 
-                    {userData && (
+                    {isUserAuthenticated && (
                         <li className="nav_item">
                             <NavLink
                                 exact
@@ -63,7 +65,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
 
-                    {userData && (
+                    {isUserAuthenticated && (
                         <li className="nav_item">
                             <NavLink
                                 exact
@@ -77,7 +79,7 @@ const Navbar = () => {
                         </li>
                     )}
 
-                    {userData && (
+                    {isUserAuthenticated && (
                         <li className="nav_item">
                             <div className="nav_link" onClick={handleSignOut}>
                                 Sign Out
@@ -85,7 +87,7 @@ const Navbar = () => {
                         </li>
                     )}
 
-                    {!userData && (
+                    {!isUserAuthenticated && (
                         <li className="nav_item">
                             <NavLink
                                 exact
@@ -99,7 +101,7 @@ const Navbar = () => {
                         </li>
                     )}
 
-                    {!userData && (
+                    {!isUserAuthenticated && (
                         <li className="nav_item">
                             <NavLink
                                 exact

@@ -8,15 +8,27 @@ import HomeScreen from "../screens/HomeScreen";
 import NewPostScreen from "../screens/NewPostScreen";
 import PostScreen from "../screens/PostScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import { getUserData } from "../api/user.api";
 
 const WrappedRouter = () => {
-    const { userData } = useContext(UserDataContext);
+    const { isUserAuthenticated, handleUserData } = useContext(UserDataContext);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     });
 
-    return userData ? (
+    const handleFetchUserData = async () => {
+        const user = await getUserData();
+        handleUserData(user.data.user);
+    };
+
+    useEffect(() => {
+        handleFetchUserData();
+
+        // eslint-disable-next-line
+    }, []);
+
+    return isUserAuthenticated ? (
         <Switch>
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/about" component={AboutScreen} />
