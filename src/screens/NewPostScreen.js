@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { createPost } from "../api/post.api";
 import PostContent from "../components/NewPost/PostContent";
 import PostTitle from "../components/NewPost/PostTitle";
-import { PostDataContext } from "../contexts/PostDataContext";
+import { UserDataContext } from "../contexts/UserDataContext";
 import { ToastNotification } from "../utils/ToastNotification";
 
 const NewPostScreen = () => {
-    const { addPost } = useContext(PostDataContext);
+    const { handleUserData } = useContext(UserDataContext);
     const history = useHistory();
 
     const initialData = {
@@ -24,11 +25,13 @@ const NewPostScreen = () => {
         }));
     };
 
-    const handleCreateNewPost = (e) => {
+    const handleCreateNewPost = async (e) => {
         e.preventDefault();
 
-        addPost(postData);
-        ToastNotification("success", "New post created successfully.");
+        const user = await createPost(postData);
+        console.log(user);
+        handleUserData(user.data.user);
+        ToastNotification("success", user.message);
         setPostData(initialData);
         history.push("/");
     };

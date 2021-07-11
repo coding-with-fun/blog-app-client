@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Post from "../components/Home/Post";
-import { PostDataContext } from "../contexts/PostDataContext";
+import { UserDataContext } from "../contexts/UserDataContext";
 
 const HomeScreen = () => {
     const history = useHistory();
-    const { postsList } = useContext(PostDataContext);
+    const { userData } = useContext(UserDataContext);
 
     const handlePageRoute = (key) => {
         history.push("/post/" + key);
@@ -13,12 +13,12 @@ const HomeScreen = () => {
 
     return (
         <div className="container posts_list__container">
-            {postsList.map((post) => {
+            {userData?.postsList.map((post) => {
                 return (
                     <div
                         className="individual_post"
-                        key={post.key}
-                        onClick={() => handlePageRoute(post.key)}
+                        key={post._id}
+                        onClick={() => handlePageRoute(post._id)}
                     >
                         <Post post={post} />
                     </div>

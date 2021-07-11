@@ -18,8 +18,10 @@ const WrappedRouter = () => {
     });
 
     const handleFetchUserData = async () => {
-        const user = await getUserData();
-        handleUserData(user.data.user);
+        if (isUserAuthenticated) {
+            const user = await getUserData();
+            handleUserData(user.data.user);
+        }
     };
 
     useEffect(() => {
