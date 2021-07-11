@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { PostDataContext } from "../contexts/PostDataContext";
+import { UserDataContext } from "../contexts/UserDataContext";
 
 const PostScreen = () => {
     const history = useHistory();
@@ -9,13 +9,15 @@ const PostScreen = () => {
     path = path.split("/");
     const key = path.pop();
 
-    const { postsList } = useContext(PostDataContext);
+    const { userData } = useContext(UserDataContext);
     const [postData, setPostData] = useState();
 
     useEffect(() => {
-        const post = postsList.find((x) => `${x.key}` === key);
-        setPostData(post);
-    }, [key, postsList]);
+        if (userData) {
+            const post = userData.postsList.find((x) => `${x._id}` === key);
+            setPostData(post);
+        }
+    }, [key, userData]);
 
     const handleGoBack = () => {
         history.push("/");

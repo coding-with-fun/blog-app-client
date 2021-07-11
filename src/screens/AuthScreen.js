@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
 import { UserDataContext } from "../contexts/UserDataContext";
 import { ToastNotification } from "../utils/ToastNotification";
+import { userSignIn, userSignUp } from "../api/auth.api";
 
 const AuthScreen = ({ flag }) => {
     const InputFields = ({
@@ -48,7 +49,8 @@ const AuthScreen = ({ flag }) => {
         password: "",
     };
     const [userData, setUserData] = useState(initialData);
-    const { handleSetUserData } = useContext(UserDataContext);
+    const { handleUserData, handleAuthenticateUser } =
+        useContext(UserDataContext);
 
     const location = useLocation();
     const history = useHistory();
@@ -66,11 +68,13 @@ const AuthScreen = ({ flag }) => {
         // eslint-disable-next-line
     }, [location]);
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         e.preventDefault();
-        ToastNotification("success", "User signed in successfully.");
-        setUserData(data);
-        handleSetUserData(data);
+        const user = flag ? await userSignUp(data) : await userSignIn(data);
+        ToastNotification("success", user.message);
+        setUserData(user.data.user);
+        handleUserData(user.data.user);
+        handleAuthenticateUser(true);
         history.push("/");
     };
 
@@ -94,8 +98,17 @@ const AuthScreen = ({ flag }) => {
 
                 {flag ? (
                     <InputFields
+                        title="Name"
+                        ID="name"
+                        helpTextID="nameHelp"
+                        helpMessage="We'll never share your credentials with anyone else."
+                    />
+                ) : null}
+
+                {flag ? (
+                    <InputFields
                         title="User Name"
-                        ID="userName"
+                        ID="username"
                         helpTextID="userNameHelp"
                         helpMessage="We'll never share your credentials with anyone else."
                     />
